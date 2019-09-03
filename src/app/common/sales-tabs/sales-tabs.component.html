@@ -1,0 +1,7 @@
+<ul class="tab">
+    <li *ngFor="let item of tabs" [ngClass]="{'active':tab==item.label}" (click)="tabChange(item)">{{item?.label}}</li>
+    <!-- <li [ngClass]="{'active':tab=='LAST WEEK'}" (click)="tab='LAST WEEK'">LAST WEEK</li> 
+    <li [ngClass]="{'active':tab=='LAST MONTH'}" (click)="tab='LAST MONTH'">LAST MONTH</li> 
+    <li [ngClass]="{'active':tab=='LAST QUARTER'}" (click)="tab='LAST QUARTER'">LAST QUARTER</li> 
+    <li [ngClass]="{'active':tab=='THIS YEAR'}" (click)="tab='THIS YEAR'">THIS YEAR</li>  -->
+  </ul>

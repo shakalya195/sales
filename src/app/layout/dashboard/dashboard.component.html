@@ -1,3 +1,5 @@
-<p>
-  dashboard works!
-</p>
+<div class="sales-container">
+    <div class="tab-white">
+      <app-sales-tabs [tabs]="filterTabs" (tabChangeEvent)="filterTabsChange($event)"></app-sales-tabs>
+    </div>
+</div>

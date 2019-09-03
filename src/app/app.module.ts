@@ -9,6 +9,7 @@ import { BlockOneComponent } from './blocks/block-one/block-one.component';
 import { BlockTwoComponent } from './blocks/block-two/block-two.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+import { SalesTabsComponent } from './common/sales-tabs/sales-tabs.component';
 
 const appRoutes: Routes = [
   { path: '',  redirectTo: '/dashboard', pathMatch: 'full'},
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     FooterComponent,
     BlockOneComponent,
     BlockTwoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SalesTabsComponent
   ],
   imports: [
     BrowserModule,

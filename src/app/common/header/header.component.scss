@@ -1,0 +1,17 @@
+.header{
+    padding: 0px 40px;
+    // display:flex;
+    height: 130px;
+    // overflow: auto;
+}
+.header .logo{
+    float:left;
+    padding: 20px 0px;
+}
+.header .title{
+    float:right;
+    padding: 30px 0px;
+    font-size: 48px;
+    font-weight: lighter;
+    color: #231f20;
+}
