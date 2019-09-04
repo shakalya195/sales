@@ -7,8 +7,8 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SalesTabsComponent implements OnInit {
 
-  tab:any;
-  @Input() tabs:any[]=[];
+  @Input() tab:any; // 'TAB1'
+  @Input() tabs:any[]=[]; // [{label:'TAB1'}]
   @Output() tabChangeEvent: EventEmitter<any> = new EventEmitter();
 
   constructor() { }

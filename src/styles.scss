@@ -6,6 +6,10 @@ body{
     background:#eff3f6;
     margin: 0px;
 }
+h2{
+    font-size:24px;
+    color:#231f20;
+}
 .sales-container{
     padding: 0px 80px;
 }
@@ -36,3 +40,88 @@ body{
 .tab-white .tab li.active{
     border-bottom:solid 2px  #2196f3
 }
+
+.white-bg{
+    background: #fff;
+    min-height:50px;
+}
+.block-one {
+    // height:200px;
+}
+.block-one .bottom{
+    text-align: right;
+    position: relative;
+    margin-top: 43px;
+}
+.block-one .title{
+    font-size: 48px;
+    font-weight: bold;
+    color:#2196f3;
+}
+.block-one .subtitle{
+    font-size: 18px;
+    font-weight: 500;
+    color:#2c3e50; 
+    position: absolute;
+    right: 0px;
+    bottom: 100%;
+    width: 50%;
+}
+.block-two{
+    color:#fff;
+}
+.block-two .title{
+    font-size:24px; 
+    text-align: center;
+}
+.block-two table{
+    font-size:18px; 
+    width: 100%;
+}
+.block-two table .big{
+    font-size:48px; 
+    line-height: 48px;
+    display:block;
+    text-align:right;
+    font-weight:bold;
+}
+.gradient app-block-two:nth-child(1)>div{
+    background: #1976D2;
+}
+.gradient app-block-two:nth-child(2)>div{
+    background: #2196f3;
+}
+.gradient app-block-two:nth-child(3)>div{
+    background: #64b5f6;
+}
+.funnel{
+    position: relative;
+}
+.funnel img{
+    width:100%;
+    height:auto;
+}
+
+.funnel .funnel-text{
+    position: absolute;
+    text-align: center;
+    width:100%;
+    top:0px;
+    color:#fff;
+}
+.funnel .funnel-text .item{
+    padding: 12px;
+}
+.funnel .funnel-text p{
+    font-size:18px;
+    margin-bottom:0px;
+}
+.funnel .funnel-text h3{
+    font-size:48px;
+    font-weight: bold;
+}
+
+.marginT5{margin-top: 5px;}
+.marginB20{margin-bottom:20px}
+.marginB40{margin-bottom:40px}
+.padding30{padding:30px;}

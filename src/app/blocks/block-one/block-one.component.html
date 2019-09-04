@@ -1,3 +1,7 @@
-<p>
-  block-one works!
-</p>
+<div class="block-one white-bg marginB40 padding30">
+  <div><img [src]="item?.image"></div>
+  <div class="bottom">
+    <div class="subtitle text-uppercase">{{item?.label}}</div>
+    <div class="title">{{item?.value | thousand}}/{{item?.total| thousand}}</div>
+  </div>
+</div>

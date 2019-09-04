@@ -10,6 +10,8 @@ import { BlockTwoComponent } from './blocks/block-two/block-two.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { SalesTabsComponent } from './common/sales-tabs/sales-tabs.component';
+import { ThousandPipe } from './pipes/thousand.pipe';
+
 
 const appRoutes: Routes = [
   { path: '',  redirectTo: '/dashboard', pathMatch: 'full'},
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     BlockOneComponent,
     BlockTwoComponent,
     PageNotFoundComponent,
-    SalesTabsComponent
+    SalesTabsComponent,
+    ThousandPipe
   ],
   imports: [
     BrowserModule,

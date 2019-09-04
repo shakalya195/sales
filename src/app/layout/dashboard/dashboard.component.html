@@ -1,5 +1,102 @@
-<div class="sales-container">
+<div class="sales-container marginB20">
     <div class="tab-white">
       <app-sales-tabs [tabs]="filterTabs" (tabChangeEvent)="filterTabsChange($event)"></app-sales-tabs>
     </div>
+</div>
+<div class="sales-container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="white-bg marginB40">
+        <div class="dropdown ">
+          <button class="btn dropdown-toggle marginT5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="funnel">
+            <img src="assets/img/funnel.png">
+            <div class="funnel-text">
+              <div class="item">
+                <p>Lead In</p>
+                <h3>{{dashboardData?.funnelData?.leadIn}}</h3>
+              </div>
+              <div class="item">
+                <p>Contact Mage</p>
+                <h3>{{dashboardData?.funnelData?.contactMade}}</h3>
+              </div>
+              <div class="item">
+                <p>Needs Defined</p>
+                <h3>{{dashboardData?.funnelData?.needsDefined}}</h3>
+              </div>
+              <div class="item">
+                <p>Proposal Made</p>
+                <h3>{{dashboardData?.funnelData?.proposalMade}}</h3>
+              </div>
+              <div class="item">
+                <p>Negotiations Started</p>
+                <h3>{{dashboardData?.funnelData?.negotiationsStarted}}</h3>
+              </div>
+              <div class="item">
+                <h3>WON</h3>
+                <h3>{{dashboardData?.funnelData?.won}}</h3>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-4">
+          <div class="gradial">
+              <app-block-one *ngFor="let item of dashboardData?.callData" [item]="item">Loding</app-block-one>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="tab-white marginB40">
+          <app-sales-tabs [tabs]="levelTabs" (tabChangeEvent)="levelTabsChange($event)"></app-sales-tabs>
+      </div>
+
+      <div class="gradient">
+          <app-block-two *ngFor="let item of dashboardData?.topUserData" [item]="item"></app-block-two>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid white-bg ">
+  <h2 class="padding30 marginB20">Details</h2>
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
