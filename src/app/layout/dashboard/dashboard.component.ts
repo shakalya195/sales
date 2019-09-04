@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private api:ApiService
+  ) { }
 
   filterTabs:any[];
   levelTabs:any[];
@@ -76,6 +79,10 @@ export class DashboardComponent implements OnInit {
         },
       ]
     }
+
+    this.api.getData('/dashboard',{}).subscribe(r=>{
+      this.dashboardData = {};
+    });
 
   }
 

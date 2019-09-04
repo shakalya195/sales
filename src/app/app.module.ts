@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { SalesTabsComponent } from './common/sales-tabs/sales-tabs.component';
 import { ThousandPipe } from './pipes/thousand.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
