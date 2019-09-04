@@ -1,6 +1,6 @@
 <div class="sales-container marginB20">
     <div class="tab-white">
-      <app-sales-tabs [tabs]="filterTabs" (tabChangeEvent)="filterTabsChange($event)"></app-sales-tabs>
+      <app-sales-tabs [tabs]="filterTabs" [tab]="filterTab" (tabChangeEvent)="filterTabsChange($event)"></app-sales-tabs>
     </div>
 </div>
 <div class="sales-container">
@@ -64,7 +64,7 @@
       </div>
 
       <div class="gradient">
-          <app-block-two *ngFor="let item of dashboardData?.topUserData" [item]="item"></app-block-two>
+          <app-block-two *ngFor="let item of userDataTop" [item]="item"></app-block-two>
       </div>
 
     </div>
