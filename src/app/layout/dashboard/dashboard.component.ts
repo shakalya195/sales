@@ -18,11 +18,21 @@ export class DashboardComponent implements OnInit {
   filterTab:any;
   levelTab:any;
 
+  salesReps:any[]=[];
+  salesRep:any;
+
   constructor(
     private api:ApiService
   ) { }
 
   ngOnInit() {
+    this.salesReps = [
+      {label:'All sales reps',value:''},
+      {label:'Marketing',value:'Marketing'},
+      {label:'Sales',value:'Sales'},
+      {label:'Technology',value:'Technology'}
+    ]
+
     this.filterTabs = [
       {label:'TODAY'},
       {label:'LAST WEEK'},
@@ -117,8 +127,12 @@ export class DashboardComponent implements OnInit {
           input.daysFilter = 0;
       }
     }
+
+    if(this.salesRep){
+      input.salesRep = this.salesRep;
+    }
     console.log(input);
-    this.api.getData('/dashboard',{salesRep:'TODAY'}).subscribe(r=>{
+    this.api.getData('/dashboard',input).subscribe(r=>{
       console.log(r);
       this.dashboardData = r.data;
       this.engagementStatus = r.engagementStatus;
@@ -145,5 +159,9 @@ export class DashboardComponent implements OnInit {
     // this.getList();
   }
 
+  changeSalesRep(item){
+    this.salesRep = item.value;
+    this.getList();
+  }
 
 }

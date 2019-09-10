@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 import { SalesTabsComponent } from './common/sales-tabs/sales-tabs.component';
 import { ThousandPipe } from './pipes/thousand.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { MomentPipe } from './pipes/moment.pipe';
 
 
 const appRoutes: Routes = [
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     BlockTwoComponent,
     PageNotFoundComponent,
     SalesTabsComponent,
-    ThousandPipe
+    ThousandPipe,
+    MomentPipe
   ],
   imports: [
     BrowserModule,

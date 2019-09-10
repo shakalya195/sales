@@ -9,12 +9,10 @@
       <div class="white-bg marginB40">
         <div class="dropdown ">
           <button class="btn dropdown-toggle marginT5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
+            {{salesRep?salesRep:'All sales rep'}}
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a *ngFor="let item of salesReps" class="dropdown-item" (click)="changeSalesRep(item)" >{{item?.label}}</a>
           </div>
         </div>
       </div>
@@ -80,26 +78,30 @@
   <table class="table table-striped">
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
+          <th>Sales Rep</th>
+          <th>Date</th>
+          <th>Client</th>
+          <th>Primary Cotact Person</th>
+          <th>Title</th>
+          <th>Vertical</th>
+          <th>Meeting Location</th>
+          <th>Perpose of interection</th>
+          <th>OutCome & Remarks</th>
+          <th>Engagement Status</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
+        <tr *ngFor="let item of dashboardData" >
+          <td>{{item?.salesRep?.S}}</td>
+          <td>{{item?.date?.N| moment:'MMM Do, YYYY'}}</td>
+          <td>{{item?.client?.S}}</td>
+          <td>{{item?.contactPerson?.S}}</td>
+          <td>{{item?.title?.S}}</td>
+          <td>{{item?.vertical?.S}}</td>
+          <td>{{item?.meetingLocation?.S}}</td>
+          <td>{{item?.purposeOfInteraction?.S}}</td>
+          <td>{{item?.outcomeWithRemarks?.S}}</td>
+          <td>{{item?.engagementStatus?.S}}</td>
         </tr>
       </tbody>
     </table>
