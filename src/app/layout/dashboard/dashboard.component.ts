@@ -11,9 +11,10 @@ export class DashboardComponent implements OnInit {
   filterTabs:any[];
   levelTabs:any[];
   dashboardData:any;
-  userDataTop:any[];
+  engagementStatus:any;
+  topBottomSalesRep:any = {top:[],bottom:[]};
   users:any[];
-
+  callsWinsAndRevenue:any[]=[];
   filterTab:any;
   levelTab:any;
 
@@ -37,39 +38,39 @@ export class DashboardComponent implements OnInit {
     ];
     this.levelTab= 'TOP';
 
-    this.dashboardData={
-      funnelData:{
+
+    this.engagementStatus = {
         leadIn:25,
         contactMade:18,
         needsDefined:12,
         proposalMade:8,
         negotiationsStarted:5,
         won:3,
+      };
+
+
+    this.callsWinsAndRevenue=[
+      {
+        image:'assets/img/ico-calls.png',
+        label:'calls',
+        value:10,
+        total:15
       },
-      callData:[
-        {
-          image:'assets/img/ico-calls.png',
-          label:'calls',
-          value:10,
-          total:15
-        },
-        {
-          image:'assets/img/ico-wins.png',
-          label:'wins',
-          value:10,
-          total:15
-        },
-        {
-          image:'assets/img/ico-revenue.png',
-          label:'incremented revenue',
-          value:80000,
-          total:100000
-        },
-      ],
-    }
+      {
+        image:'assets/img/ico-wins.png',
+        label:'wins',
+        value:10,
+        total:15
+      },
+      {
+        image:'assets/img/ico-revenue.png',
+        label:'incremented revenue',
+        value:80000,
+        total:100000
+      },
+    ];
 
-
-    this.userDataTop = [
+    this.topBottomSalesRep.top = [
       {
         name:'John Doe',
         newMrr:5230,
@@ -101,33 +102,28 @@ export class DashboardComponent implements OnInit {
     if(this.filterTab){
       switch(this.filterTab){
         case 'LAST WEEK':
-          input.startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
-          input.endDate = today
+          input.daysFilter = 7;
           break;
         case 'LAST MONTH':
-          input.startDate = new Date(today.getFullYear(), today.getMonth() -1 , today.getDate());
-          input.endDate = new Date(today.getFullYear(), today.getMonth() -1 , today.getDate());
+          input.daysFilter = 30;
           break;
         case 'LAST QUARTER':
-          input.startDate = new Date(today.getFullYear(), today.getMonth() -1 , today.getDate());
-          input.endDate = new Date(today.getFullYear(), today.getMonth() -1 , today.getDate());
+          input.daysFilter = 120;
           break;
         case 'THIS YEAR':
-          input.startDate = new Date(today.getFullYear(), today.getMonth() -1 , today.getDate());
-          input.endDate = new Date(today.getFullYear(), today.getMonth() -1 , today.getDate());
+          input.daysFilter = 365;
           break;
         default: 
-          input.startDate = today
-          input.endDate = today
+          input.daysFilter = 0;
       }
     }
-
-    input.startDate = this.convertDate(input.startDate);
-    input.endDate = this.convertDate(input.endDate);
     console.log(input);
     this.api.getData('/dashboard',{salesRep:'TODAY'}).subscribe(r=>{
       console.log(r);
-      this.dashboardData = {};
+      this.dashboardData = r.data;
+      this.engagementStatus = r.engagementStatus;
+      this.callsWinsAndRevenue = r.callsWinsAndRevenue;
+      this.topBottomSalesRep = r.topBottomSalesRep
     });
   }
 
@@ -146,7 +142,7 @@ export class DashboardComponent implements OnInit {
   levelTabsChange(event){
     console.log(event);
     this.levelTab = event;
-    this.getList();
+    // this.getList();
   }
 
 

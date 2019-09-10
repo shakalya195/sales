@@ -25,27 +25,27 @@
             <div class="funnel-text">
               <div class="item">
                 <p>Lead In</p>
-                <h3>{{dashboardData?.funnelData?.leadIn}}</h3>
+                <h3>{{engagementStatus?.leadIn}}</h3>
               </div>
               <div class="item">
                 <p>Contact Mage</p>
-                <h3>{{dashboardData?.funnelData?.contactMade}}</h3>
+                <h3>{{engagementStatus?.contactMade}}</h3>
               </div>
               <div class="item">
                 <p>Needs Defined</p>
-                <h3>{{dashboardData?.funnelData?.needsDefined}}</h3>
+                <h3>{{engagementStatus?.needsDefined}}</h3>
               </div>
               <div class="item">
                 <p>Proposal Made</p>
-                <h3>{{dashboardData?.funnelData?.proposalMade}}</h3>
+                <h3>{{engagementStatus?.proposalMade}}</h3>
               </div>
               <div class="item">
                 <p>Negotiations Started</p>
-                <h3>{{dashboardData?.funnelData?.negotiationsStarted}}</h3>
+                <h3>{{engagementStatus?.negotiationsStarted}}</h3>
               </div>
               <div class="item">
                 <h3>WON</h3>
-                <h3>{{dashboardData?.funnelData?.won}}</h3>
+                <h3>{{engagementStatus?.won}}</h3>
               </div>
             </div>
           </div>
@@ -53,18 +53,22 @@
         </div>
         <div class="col-md-4">
           <div class="gradial">
-              <app-block-one *ngFor="let item of dashboardData?.callData" [item]="item">Loding</app-block-one>
+              <app-block-one *ngFor="let item of callsWinsAndRevenue" [item]="item">Loding</app-block-one>
           </div>
         </div>
       </div>
     </div>
+
     <div class="col-md-3">
       <div class="tab-white marginB40">
-          <app-sales-tabs [tabs]="levelTabs" (tabChangeEvent)="levelTabsChange($event)"></app-sales-tabs>
+          <app-sales-tabs [tabs]="levelTabs" [tab]="levelTab" (tabChangeEvent)="levelTabsChange($event)"></app-sales-tabs>
       </div>
 
-      <div class="gradient">
-          <app-block-two *ngFor="let item of userDataTop" [item]="item"></app-block-two>
+      <div *ngIf="levelTab=='TOP'"  class="gradient">
+          <app-block-two *ngFor="let item of topBottomSalesRep?.top" [item]="item"></app-block-two>
+      </div>
+      <div *ngIf="levelTab=='BOTTOM'"  class="gradient">
+          <app-block-two *ngFor="let item of topBottomSalesRep?.bottom" [item]="item"></app-block-two>
       </div>
 
     </div>
