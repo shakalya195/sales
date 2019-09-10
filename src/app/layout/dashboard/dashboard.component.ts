@@ -91,7 +91,8 @@ export class DashboardComponent implements OnInit {
     ]
 
 
-
+    this.getList();
+    
   }
 
   getList(){
@@ -120,10 +121,20 @@ export class DashboardComponent implements OnInit {
           input.endDate = today
       }
     }
+
+    input.startDate = this.convertDate(input.startDate);
+    input.endDate = this.convertDate(input.endDate);
     console.log(input);
-    this.api.getData('/dashboard',input).subscribe(r=>{
+    this.api.getData('/dashboard',{salesRep:'TODAY'}).subscribe(r=>{
+      console.log(r);
       this.dashboardData = {};
     });
+  }
+
+  convertDate(inputFormat) {
+    function pad(s) { return (s < 10) ? '0' + s : s; }
+    var d = new Date(inputFormat);
+    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
   }
 
   filterTabsChange(event){
